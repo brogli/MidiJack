@@ -57,6 +57,8 @@ namespace MidiJack
         // Last update frame number
         int _lastFrame;
 
+        private int _midiClockCounter;
+
         #endregion
 
         #region Accessor Methods
@@ -97,6 +99,12 @@ namespace MidiJack
             var cs = _channelArray[(int)channel];
             if (cs._knobMap.ContainsKey(knobNumber)) return cs._knobMap[knobNumber];
             return defaultValue;
+        }
+
+        public int GetMidiClockCounter()
+        {
+            UpdateIfNeeded();
+            return _midiClockCounter;
         }
 
         #endregion
@@ -248,11 +256,24 @@ namespace MidiJack
                         knobDelegate((MidiChannel)channelNumber, message.data1, level);
                 }
 
-                #if UNITY_EDITOR
+                // Midi Clock tick?
+                if (statusCode == 0xF)
+                {
+                    if (_midiClockCounter < 24)
+                    {
+                        _midiClockCounter++;
+                    }
+                    else
+                    {
+                        _midiClockCounter = 0;
+                    }
+                }
+
+#if UNITY_EDITOR
                 // Record the message.
                 _totalMessageCount++;
                 _messageHistory.Enqueue(message);
-                #endif
+#endif
             }
 
             #if UNITY_EDITOR

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MidiJackFork", "MidiJackFork.csproj", "{41424E31-8D64-4C9A-AFAD-2343A94388DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41424E31-8D64-4C9A-AFAD-2343A94388DC}.Debug|x86.ActiveCfg = Debug|x86
+		{41424E31-8D64-4C9A-AFAD-2343A94388DC}.Debug|x86.Build.0 = Debug|x86
+		{41424E31-8D64-4C9A-AFAD-2343A94388DC}.Release|x86.ActiveCfg = Release|x86
+		{41424E31-8D64-4C9A-AFAD-2343A94388DC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF55A9C6-6877-4ADA-A0C2-D0123B314C73}
+	EndGlobalSection
+EndGlobal
