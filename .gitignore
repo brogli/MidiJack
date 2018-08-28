@@ -18,6 +18,9 @@ build/
 ipch/
 *.sdf
 .vs
+*.csproj
+*.user
+
 
 # Misc
 *.swp
