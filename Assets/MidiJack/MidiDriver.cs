@@ -57,6 +57,7 @@ namespace MidiJack
         // Last update frame number
         int _lastFrame;
 
+        //Midi Clock comes usually as 24 ticks per beat
         private int _midiClockCounter;
 
         #endregion
@@ -265,7 +266,7 @@ namespace MidiJack
                     }
                     else
                     {
-                        _midiClockCounter = 0;
+                        _midiClockCounter = 1;
                     }
                 }
 
