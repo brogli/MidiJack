@@ -57,8 +57,10 @@ namespace MidiJack
         // Last update frame number
         int _lastFrame;
 
-        //Midi Clock comes usually as 24 ticks per beat
-        private int _midiClockCounter;
+        //Midi Clock comes usually as 24 ticks per beat.
+        //This array contains 3 counter ints. One counts to one beat,
+        //one to two and one to four.
+        private int[] _midiClockCounters = new int[3] {0, 0, 0};
 
         #endregion
 
@@ -102,10 +104,10 @@ namespace MidiJack
             return defaultValue;
         }
 
-        public int GetMidiClockCounter()
+        public int[] GetMidiClockCounters()
         {
             UpdateIfNeeded();
-            return _midiClockCounter;
+            return _midiClockCounters;
         }
 
         #endregion
@@ -265,13 +267,31 @@ namespace MidiJack
                 // Midi Clock tick?
                 if (statusCode == 0xF)
                 {
-                    if (_midiClockCounter < 24)
+                    if (_midiClockCounters[0] < 24)
                     {
-                        _midiClockCounter++;
+                        _midiClockCounters[0]++;
                     }
                     else
                     {
-                        _midiClockCounter = 1;
+                        _midiClockCounters[0] = 1;
+                    }
+
+                    if (_midiClockCounters[1] < 48)
+                    {
+                        _midiClockCounters[1]++;
+                    }
+                    else
+                    {
+                        _midiClockCounters[1] = 1;
+                    }
+
+                    if (_midiClockCounters[2] < 96)
+                    {
+                        _midiClockCounters[2]++;
+                    }
+                    else
+                    {
+                        _midiClockCounters[2] = 1;
                     }
                 }
 

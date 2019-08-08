@@ -100,9 +100,9 @@ namespace MidiJack
         }
 
         //Returns the Midi Clock Counter (Midi Clock sends 24 ticks per beat)
-        public static int GetMidiClockCounter()
+        public static int[] GetMidiClockCounters()
         {
-            return MidiDriver.Instance.GetMidiClockCounter();
+            return MidiDriver.Instance.GetMidiClockCounters();
         }
     }
 }
