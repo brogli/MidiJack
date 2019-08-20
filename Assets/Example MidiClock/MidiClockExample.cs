@@ -11,8 +11,8 @@ public class MidiclockExample : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float clock = MidiJack.MidiMaster.GetMidiClockCounter();
-        transform.localScale = new Vector3(clock* 0.5f, clock * 0.5f, 1);
+        int[] clock = MidiJack.MidiMaster.GetMidiClockCounters();
+        transform.localScale = new Vector3(clock[0]* 0.5f, clock[1] * 0.5f, 1);
 
     }
 }
